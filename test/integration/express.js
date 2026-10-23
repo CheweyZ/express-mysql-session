@@ -73,7 +73,7 @@ describe('Express Integration', function() {
 					Object.values(sockets).forEach(socket => socket.destroy());
 					closeServer.apply(this, arguments);
 				};
-				app.get('*', function(req, res) {
+				app.get(/.*/, function(req, res) {
 					const { bytes } = req.query;
 					const sendResponse = function(error) {
 						if (error) {
